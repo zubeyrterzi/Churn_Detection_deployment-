@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+        <!-- Required meta tags -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        {% block styles %}
+            <!-- Bootstrap CSS -->
+            {{ bootstrap.load_css() }}
+        {% endblock %}
+
+        <title> Churn Prediction </title>
+        {% endblock %}
+
+
+    </head>
+    <body>
+        {% block content %}{% endblock %}
+
+        {% block scripts %}
+        
+            {{ bootstrap.load_js() }}
+        {% endblock %}
+        <div class="login">
+            <h1> Predict Churn </h1>
+            <form action="{{url_for('predict')}}"method = "post">
+                <label for="Total Night Minutes">Total Night Minutes</label><br>
+                <input type="text" id="Total Night Minutes" name="Total Night Minutes"><br>
+                <label for="Voice Mail">Voice Mail</label><br>
+                <input type="text" id="Voice Mail" name="Voice Mail"><br>
+                <label for="Total Evening Charge">Total Evening Charge</label><br>
+                <input type="text" id="Total Evening Charge" name="Total Evening Charge"><br>
+                <label for="International Plan">International Plan</label><br>
+                <input type="text" id="International Plan" name="International Plan"><br>
+                <label for="Total Day Calls">Total Day Calls</label><br>
+                <input type="text" id="Total Day Calls" name="Total Day Calls"><br>
+                <label for="Total International Charge">Total International Charge</label><br>
+                <input type="text" id="Total International Charge" name="Total International Charge"><br>
+                <button type="submit">Submit</button>
+            </form>
+            <br>
+            <br>
+            {{ prediction_text }} 
+        </div>
+          
+    </body>
+</html>
