@@ -1,4 +1,3 @@
-from flask_bootstrap import  Bootstrap4
 from flask import Flask, request, jsonify, render_template
 import pickle
 import numpy as np
@@ -9,7 +8,6 @@ import pandas as pd
 
 app = Flask(__name__)
 
-bootstrap = Bootstrap4(app)
 
 @app.route("/", methods = ["GET", "POST"])
 def Home():
